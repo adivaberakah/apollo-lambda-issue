@@ -1,0 +1,12 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+dist
+*.log
+.DS_Store
+.cache
+.serverless

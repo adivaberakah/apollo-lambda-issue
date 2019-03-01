@@ -1,0 +1,24 @@
+service: apollo-lambda-issue
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  graphql:
+    handler: src/graphql.graphqlHandler
+    environment:
+      SLS_DEBUG: true
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+    integration: lambda-proxy
+  graphiql:
+    handler: src/graphql.graphqlHandler
+    events:
+      - http:
+          path: graphiql
+          method: get
+          integration: lambda-proxy
